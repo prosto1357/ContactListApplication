@@ -1,0 +1,26 @@
+﻿@model ContactListApplication.Models.PhoneNumber
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Добавление нового номера</h2>
+
+@using (Html.BeginForm())
+{
+    <h3>Номер телефона</h3>
+    <p>
+        Номер <br />
+        @Html.EditorFor(model => model.pNumber)
+    </p>
+    <p>
+        Контакт <br />
+        @Html.DropDownListFor(model => model.ContactId, ViewBag.Contacts as SelectList)
+    </p>
+    <p>
+        <input type="submit" value="Добавить номер к контакту">
+    </p>
+}
+<div>
+    @Html.ActionLink("К списку номеров", "Index")
+</div>
